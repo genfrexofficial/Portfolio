@@ -1,0 +1,127 @@
+.header {
+  display: flex;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 9999;
+}
+
+.header ul.navbar-menu {
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-gap: 22px;
+  align-items: center;
+}
+
+.header ul.navbar-menu li {
+  margin: 0;
+  letter-spacing: 0.8px;
+  color: #d1d5db;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.header ul.navbar-menu li:hover {
+  color: #ffffff;
+}
+
+.navbar-connect {
+  display: none;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  font-weight: 500;
+  color: #9cb3db;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: rgba(16, 20, 32, 0.8);
+  border: 1px solid rgba(0, 87, 248, 0.35);
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.navbar-connect:hover {
+  color: #ffffff;
+  border-color: rgba(0, 87, 248, 0.75);
+  background: rgba(0, 87, 248, 0.25);
+  box-shadow: 0 0 15px rgba(0, 87, 248, 0.35);
+}
+
+.navbar-title {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.6px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    padding: 16px 0px;
+  }
+  .header ul.navbar-menu {
+    column-gap: 12px;
+    font-size: 11px;
+  }
+  .navbar-title {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header ul.navbar-menu {
+    column-gap: 20px;
+    font-size: 13.5px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .header {
+    padding: 24px 0px;
+  }
+  .header ul.navbar-menu {
+    column-gap: 26px;
+    font-size: 14px;
+  }
+  .navbar-title {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .navbar-connect {
+    display: inline-flex;
+    align-items: center;
+  }
+  .header ul.navbar-menu {
+    column-gap: 28px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .header {
+    padding: 28px 0px;
+  }
+  .header ul.navbar-menu {
+    column-gap: 36px;
+    font-size: 14.5px;
+  }
+  .navbar-title {
+    font-size: 18px;
+  }
+}

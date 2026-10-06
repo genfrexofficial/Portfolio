@@ -1,0 +1,113 @@
+.interactive-bg-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: var(--backgroundColor, #0b0d14);
+}
+
+/* Subtle Animated Blueprint Tech Grid */
+.interactive-bg-grid {
+  position: absolute;
+  inset: -100px;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.065) 1px,
+    transparent 1px
+  );
+  background-size: 36px 36px;
+  opacity: 0.7;
+  mask-image: radial-gradient(
+    ellipse 85% 85% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 85% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+  animation: gridDrift 40s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridDrift {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-18px, -18px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Fluid Ambient Nebula Glows */
+.interactive-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.28;
+  animation: nebulaBreathe 16s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #0057F8 0%, rgba(56, 189, 248, 0.2) 60%, transparent 100%);
+  top: -10%;
+  left: -5%;
+  animation-duration: 20s;
+}
+
+.glow-2 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #2563eb 0%, rgba(99, 102, 241, 0.2) 70%, transparent 100%);
+  bottom: 5%;
+  right: -5%;
+  animation-duration: 18s;
+  animation-delay: -6s;
+}
+
+.glow-3 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, transparent 70%);
+  top: 45%;
+  left: 35%;
+  animation-duration: 24s;
+  animation-delay: -12s;
+}
+
+@keyframes nebulaBreathe {
+  0% {
+    transform: scale(0.9) translate(0, 0);
+    opacity: 0.22;
+  }
+  50% {
+    transform: scale(1.15) translate(40px, -30px);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(0.95) translate(-30px, 35px);
+    opacity: 0.24;
+  }
+}
+
+/* Interactive Canvas Layer */
+.interactive-bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+}

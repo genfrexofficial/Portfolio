@@ -1,0 +1,32 @@
+.cursor-main {
+  --size: 0px;
+  position: fixed;
+  top: calc(var(--size) / -2);
+  left: calc(var(--size) / -2);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  background-color: rgba(0, 87, 248, 0.4);
+  border: 1.5px solid #0057F8;
+  box-shadow: 0 0 25px 5px rgba(0, 87, 248, 0.45);
+  opacity: 0;
+  transition: opacity 0.25s ease, top 0.25s ease-out, left 0.25s ease-out,
+    width 0.25s ease-out, height 0.25s ease-out;
+}
+
+.cursor-icons {
+  display: none !important;
+}
+
+.cursor-disable {
+  --size: 0px;
+  opacity: 0 !important;
+}
+
+@media only screen and (min-width: 600px) {
+  .cursor-main {
+    --size: 38px;
+  }
+}

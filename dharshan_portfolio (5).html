@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharshan Selvaraj | HR, Business Analytics & Growth Strategy</title>
+    <meta name="description"
+        content="Portfolio of Dharshan Selvaraj - MBA candidate in HR & Business Analytics, BCA graduate, specializing in Talent Management, Business Development, and Analytics.">
+
+    <!-- OpenGraph Metadata -->
+    <meta property="og:title" content="Dharshan Selvaraj | HR & Business Analytics Portfolio">
+    <meta property="og:description" content="MBA candidate specializing in HR, Business Analytics, Digital Growth, and Strategy.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="CEO.webp">
+
+    <!-- Fonts: Geist & Syne & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Three.js Engine & GLTF Loader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --font-main: 'Geist', sans-serif;
+            --accentColor: #c2a4ff;
+            --accentPurple: #aa42ff;
+            --backgroundColor: #0b080c;
+            --cardBg: rgba(18, 14, 22, 0.75);
+            --cWidth: calc(100% - 40px);
+            --cMaxWidth: 1920px;
+            --vh: 100vh;
+        }
+
+        @media screen and (min-width: 768px) {
+            :root {
+                --cWidth: 92%;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            color-scheme: dark;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--backgroundColor);
+            color: #eae5ec;
+            line-height: 1.5;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accentColor);
+        }
+
+        /* Ambient Glowing Circles */
+        .landing-circle1 {
+            top: 0;
+            left: 0;
+            z-index: 1;
+            position: fixed;
+            width: 340px;
+            height: 340px;
+            background-color: #fb8dff;
+            box-shadow: inset -50px 40px 50px rgba(84, 0, 255, 0.6);
+            filter: blur(65px);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: loadingCircle 6s linear infinite;
+        }
+
+        @keyframes loadingCircle {
+            0% {
+                transform: translate(-70%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-70%, -50%) rotate(360deg);
+            }
+        }
+
+        .landing-circle2 {
+            top: 50%;
+            right: 0;
+            transform: translate(calc(100% - 2px), -50%);
+            z-index: 1;
+            position: fixed;
+            width: 340px;
+            height: 340px;
+            background-color: #fb8dff;
+            box-shadow: inset -50px 40px 50px rgba(84, 0, 255, 0.6);
+            filter: blur(60px);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: loadingCircle2 7s linear infinite;
+        }
+
+        @keyframes loadingCircle2 {
+            100% {
+                transform: translate(60%, -50%) rotate(360deg);
+            }
+        }
+
+        .nav-fade {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background-image: linear-gradient(0deg, transparent, var(--backgroundColor) 70%);
+            pointer-events: none;
+            z-index: 12;
+        }
+
+        /* Custom Interactive Cursor */
+        .cursor-main {
+            --size: 0px;
+            position: fixed;
+            top: calc(var(--size) / -2);
+            left: calc(var(--size) / -2);
+            width: var(--size);
+            height: var(--size);
+            border-radius: 50px;
+            pointer-events: none;
+            z-index: 999;
+            background-color: #e6c3ff;
+            box-shadow: 0px 0px 30px 0px rgb(175, 131, 255);
+            mix-blend-mode: difference;
+            transition: width 0.3s ease-out, height 0.3s ease-out, transform 0.05s ease-out;
+        }
+
+        .cursor-hover {
+            --size: 65px !important;
+        }
+
+        @media (min-width: 768px) {
+            .cursor-main {
+                --size: 38px;
+            }
+        }
+
+        /* Header / Navbar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 20;
+            box-sizing: border-box;
+        }
+
+        .navbar-title {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .navbar-connect {
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: #bbb;
+            display: none;
+        }
+
+        @media (min-width: 900px) {
+            .navbar-connect {
+                display: block;
+            }
+        }
+
+        .header ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .header ul li a {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            height: 20px;
+            line-height: 20px;
+            text-transform: uppercase;
+        }
+
+        .header ul li a .hover-link-wrap {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header ul li a:hover .hover-link-wrap {
+            transform: translateY(-20px);
+        }
+
+        .header ul li a .hover-link-sub {
+            color: var(--accentColor);
+        }
+
+        /* Floating Social Icons Dock & Resume Pill */
+        .icons-section {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 18px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+        }
+
+        .social-icons a {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.25);
+            color: var(--accentColor);
+        }
+
+        .resume-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 22px;
+            background: rgba(194, 164, 255, 0.12);
+            border: 1px solid rgba(194, 164, 255, 0.3);
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #fff;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resume-button:hover {
+            background: var(--accentColor);
+            color: #0b080c;
+            box-shadow: 0 0 25px rgba(194, 164, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container-main {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Landing / Hero Section */
+        .landing-section {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .landing-container {
+            width: var(--cWidth);
+            max-width: var(--cMaxWidth);
+            margin: auto;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .landing-intro {
+            position: absolute;
+            z-index: 10;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .landing-intro h2 {
+            margin: 0 0 10px 0;
+            color: var(--accentColor);
+            font-size: 26px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .landing-intro h1 {
+            margin: 0;
+            letter-spacing: 2px;
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: 1.05;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .landing-intro h1 span {
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .landing-intro .subtitle {
+            margin-top: 15px;
+            font-size: 15px;
+            color: #a19ba5;
+            font-weight: 400;
+            letter-spacing: 1px;
+            max-width: 380px;
+        }
+
+        .landing-info {
+            position: absolute;
+            z-index: 10;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: right;
+        }
+
+        .landing-info h3 {
+            font-size: 24px;
+            letter-spacing: 3px;
+            font-weight: 300;
+            color: var(--accentColor);
+            margin: 0 0 8px 0;
+        }
+
+        .landing-info-h2 {
+            color: #c481ff;
+            font-size: clamp(32px, 5vw, 60px);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .landing-info-sub {
+            color: #fff;
+            font-size: clamp(24px, 3.8vw, 44px);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.85;
+        }
+
+        /* Center 3D Stage / Holo Card */
+        .character-model {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 800px;
+            height: 85vh;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+        }
+
+        #canvas3d {
+            width: 100%;
+            height: 100%;
+            outline: none;
+        }
+
+        .character-rim {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            z-index: 2;
+            background-color: #f59bf8;
+            box-shadow: inset 60px 35px 85px 0px rgba(85, 0, 255, 0.7);
+            filter: blur(60px);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 0.28;
+            pointer-events: none;
+        }
+
+        .avatar-holo-card {
+            position: relative;
+            width: 290px;
+            height: 380px;
+            border-radius: 28px;
+            padding: 10px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
+            border: 1px solid rgba(194, 164, 255, 0.25);
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.8), 0 0 40px rgba(170, 66, 255, 0.2);
+            backdrop-filter: blur(20px);
+            transform-style: preserve-3d;
+            transition: transform 0.2s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-holo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: contrast(1.05) brightness(0.95);
+        }
+
+        .avatar-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            padding: 12px 16px;
+            background: rgba(11, 8, 12, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .avatar-badge-text h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .avatar-badge-text p {
+            font-size: 11px;
+            color: var(--accentColor);
+            letter-spacing: 0.5px;
+        }
+
+        .avatar-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
+        }
+
+        /* About Section */
+        .about-section {
+            width: 100%;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 0;
+            z-index: 10;
+        }
+
+        .about-me {
+            width: var(--cWidth);
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-me h3.title {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--accentColor);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .about-me p.para {
+            font-size: clamp(20px, 3vw, 32px);
+            line-height: 1.45;
+            font-weight: 300;
+            color: #eae5ec;
+            letter-spacing: 0.5px;
+        }
+
+        .about-me p.para strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ========================================================
+           PROPERLY FIXED "WHAT I DO" SECTION
+           ======================================================== */
+        .whatIDO {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 100vh;
+            width: var(--cWidth);
+            max-width: var(--cMaxWidth);
+            margin: auto;
+            padding: 100px 0;
+            z-index: 10;
+        }
+
+        .what-box {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .what-box h2.title {
+            font-size: clamp(45px, 6vw, 95px);
+            line-height: 1.05;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hat-h2 {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .do-h2 {
+            color: var(--accentColor);
+        }
+
+        .what-box-in {
+            flex-direction: column;
+            width: 100%;
+            max-width: 540px;
+            margin-left: 50px;
+            position: relative;
+            display: flex !important;
+            gap: 25px;
+        }
+
+        .what-content {
+            width: 100%;
+            min-height: 200px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            padding: 35px 40px;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px dashed rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .what-content:hover,
+        .what-content-active {
+            min-height: 290px;
+            background: rgba(194, 164, 255, 0.07);
+            border-color: var(--accentColor);
+            box-shadow: 0 0 35px rgba(170, 66, 255, 0.2);
+            padding: 35px 40px;
+        }
+
+        .what-content h3 {
+            font-size: 28px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+            color: #fff;
+        }
+
+        .what-content h4 {
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            margin: 0 0 12px 0;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: var(--accentColor);
+        }
+
+        .what-content p {
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 300;
+            color: #c4bfca;
+            margin: 0 0 16px 0;
+        }
+
+        .what-content-in {
+            height: 100%;
+        }
+
+        .what-content-in h5 {
+            font-weight: 400;
+            opacity: 0.6;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .what-content-flex {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .what-tags {
+            font-size: 12px;
+            font-weight: 400;
+            padding: 4px 12px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            color: #eee;
+            transition: all 0.2s;
+        }
+
+        .what-content:hover .what-tags,
+        .what-content-active .what-tags {
+            border-color: rgba(194, 164, 255, 0.4);
+            background-color: rgba(194, 164, 255, 0.15);
+            color: #fff;
+        }
+
+        /* Corner Brackets */
+        .what-content::before,
+        .what-corner::before,
+        .what-content::after,
+        .what-corner::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            border: 3px solid #fff;
+            opacity: 0.9;
+            transition: border-color 0.3s;
+        }
+
+        .what-content:hover::before,
+        .what-content:hover::after,
+        .what-content:hover .what-corner::before,
+        .what-content:hover .what-corner::after,
+        .what-content-active::before,
+        .what-content-active::after,
+        .what-content-active .what-corner::before,
+        .what-content-active .what-corner::after {
+            border-color: var(--accentColor);
+        }
+
+        .what-content::before {
+            top: -2px;
+            left: -2px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .what-corner::before {
+            top: -2px;
+            right: -2px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .what-content::after {
+            bottom: -2px;
+            left: -2px;
+            border-top: none;
+            border-right: none;
+        }
+
+        .what-corner::after {
+            bottom: -2px;
+            right: -2px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Diagonal Arrow Indicator */
+        .what-arrow {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 28px;
+            height: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+            transition: all 0.35s ease;
+        }
+
+        .what-arrow::before {
+            content: "";
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transition: transform 0.4s ease;
+            width: 8px;
+            height: 8px;
+        }
+
+        .what-content:hover .what-arrow,
+        .what-content-active .what-arrow {
+            border-color: var(--accentColor);
+            background: rgba(194, 164, 255, 0.2);
+        }
+
+        .what-content:hover .what-arrow::before,
+        .what-content-active .what-arrow::before {
+            transform: translate(-50%, -20%) rotate(-225deg);
+            border-color: var(--accentColor);
+        }
+
+        /* Career & Timeline Section */
+        .career-section {
+            width: var(--cWidth);
+            max-width: 1200px;
+            margin: auto;
+            padding: 120px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .career-section h2 {
+            font-size: clamp(40px, 5.5vw, 75px);
+            line-height: 1.1;
+            font-weight: 600;
+            text-align: center;
+            background: linear-gradient(0deg, #aa42ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 90px;
+        }
+
+        .career-section h2 span {
+            font-weight: 300;
+        }
+
+        .career-info {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .career-timeline {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background-image: linear-gradient(to top, #aa42ff 20%, var(--accentColor) 50%, transparent 95%);
+        }
+
+        .career-dot {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            background-color: #aa42ff;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 8px 3px #d29bff, 0px 0px 20px 8px #d097ff, 0px 0px 80px 20px #f2c0ff;
+            animation: timeline 1.2s linear infinite forwards;
+        }
+
+        @keyframes timeline {
+            0%, 100% {
+                box-shadow: 0px 0px 8px 3px #d29bff, 0px 0px 20px 6px #d097ff;
+            }
+            50% {
+                box-shadow: 0px 0px 14px 5px #d29bff, 0px 0px 35px 12px #d097ff, 0px 0px 90px 25px #f2c0ff;
+            }
+        }
+
+        .career-info-box {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .career-info-in {
+            display: flex;
+            width: 44%;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .career-role h4 {
+            font-size: 24px;
+            line-height: 1.2;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .career-role h5 {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--accentColor);
+        }
+
+        .career-info h3 {
+            font-size: 38px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .career-info-box p {
+            width: 44%;
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 300;
+            color: #b8b3be;
+        }
+
+        @media (max-width: 900px) {
+            .career-timeline {
+                left: 15px;
+            }
+            .career-info-box {
+                flex-direction: column;
+                gap: 15px;
+                padding-left: 45px;
+            }
+            .career-info-in, .career-info-box p {
+                width: 100%;
+            }
+        }
+
+        /* Work Section - Auto Horizontal Marquee */
+        .work-section {
+            width: 100%;
+            padding: 120px 0 100px 0;
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .work-container {
+            width: 100%;
+            margin: auto;
+        }
+
+        .work-section h2 {
+            font-size: clamp(40px, 5.5vw, 75px);
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .work-section h2 span {
+            color: var(--accentColor);
+        }
+
+        .work-subtitle {
+            text-align: center;
+            color: #a8a0b0;
+            font-size: 15px;
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+
+        .work-track-wrapper {
+            width: 100%;
+            overflow: hidden;
+            padding: 15px 0;
+            mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+        }
+
+        .work-track {
+            display: flex;
+            width: max-content;
+            gap: 28px;
+            animation: workAutoMarquee 38s linear infinite;
+        }
+
+        .work-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes workAutoMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .work-box {
+            background: rgba(18, 14, 22, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 34px 28px;
+            width: 420px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 22px;
+            transition: all 0.35s ease;
+            position: relative;
+        }
+
+        .work-box:hover {
+            border-color: rgba(194, 164, 255, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(170, 66, 255, 0.25);
+        }
+
+        .work-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .work-title h3 {
+            font-size: 38px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.25);
+            line-height: 1;
+        }
+
+        .work-title div {
+            text-align: right;
+        }
+
+        .work-title h4 {
+            font-size: 19px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .work-title p {
+            font-size: 12px;
+            color: var(--accentColor);
+            font-weight: 500;
+        }
+
+        .work-info h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .work-info p {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .work-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 30px;
+            font-size: 12px;
+            color: #34d399;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        /* Education & Credentials Bento Section */
+        .edu-section {
+            width: var(--cWidth);
+            max-width: var(--cMaxWidth);
+            margin: auto;
+            padding: 100px 0 120px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .edu-section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .edu-section-title h2 {
+            font-size: clamp(38px, 5.5vw, 75px);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            background: linear-gradient(0deg, #aa42ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 14px;
+        }
+
+        .edu-section-title h2 span {
+            font-weight: 300;
+            color: var(--accentColor);
+            -webkit-text-fill-color: var(--accentColor);
+        }
+
+        .edu-section-title p {
+            color: #a8a0b0;
+            font-size: 16px;
+            max-width: 650px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .edu-column-card {
+            background: rgba(18, 14, 22, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 34px 28px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .edu-column-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(194, 164, 255, 0.3);
+            box-shadow: 0 16px 40px -10px rgba(170, 66, 255, 0.15);
+        }
+
+        .edu-col-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 26px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .edu-col-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .edu-col-icon.edu-icon {
+            background: rgba(194, 164, 255, 0.12);
+            color: #c2a4ff;
+            border: 1px solid rgba(194, 164, 255, 0.25);
+        }
+
+        .edu-col-icon.achieve-icon {
+            background: rgba(251, 191, 36, 0.12);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .edu-col-icon.cert-icon {
+            background: rgba(52, 211, 153, 0.12);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.25);
+        }
+
+        .edu-col-head h3 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0;
+        }
+
+        .edu-items-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            flex-grow: 1;
+        }
+
+        .edu-card-entry {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 16px 18px;
+            transition: all 0.25s ease;
+        }
+
+        .edu-card-entry:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(194, 164, 255, 0.2);
+        }
+
+        .edu-entry-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .edu-entry-head h4 {
+            font-size: 15.5px;
+            font-weight: 600;
+            color: #f5f2f8;
+            line-height: 1.35;
+        }
+
+        .badge-year {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 20px;
+            background: rgba(194, 164, 255, 0.1);
+            color: #c2a4ff;
+            border: 1px solid rgba(194, 164, 255, 0.25);
+            white-space: nowrap;
+        }
+
+        .edu-inst {
+            font-size: 13.5px;
+            color: #b5adc0;
+            margin-bottom: 6px;
+            line-height: 1.45;
+        }
+
+        .badge-score {
+            display: inline-block;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: rgba(170, 66, 255, 0.15);
+            color: #d8b4fe;
+            border: 1px solid rgba(170, 66, 255, 0.3);
+        }
+
+        /* Achievement item */
+        .achieve-entry {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 13px 15px;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .achieve-entry:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(251, 191, 36, 0.25);
+            transform: translateX(4px);
+        }
+
+        .badge-1st {
+            flex-shrink: 0;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.35);
+        }
+
+        .badge-2nd {
+            flex-shrink: 0;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: rgba(203, 213, 225, 0.15);
+            color: #e2e8f0;
+            border: 1px solid rgba(203, 213, 225, 0.3);
+        }
+
+        .achieve-desc h5 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #f1edf5;
+            line-height: 1.4;
+            margin-bottom: 3px;
+        }
+
+        .achieve-desc p {
+            font-size: 12px;
+            color: #9f96aa;
+            margin: 0;
+        }
+
+        .badge-elite {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 6px;
+            background: rgba(52, 211, 153, 0.14);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.35);
+            white-space: nowrap;
+        }
+
+        .badge-cert {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 6px;
+            background: rgba(147, 197, 253, 0.14);
+            color: #93c5fd;
+            border: 1px solid rgba(147, 197, 253, 0.35);
+            white-space: nowrap;
+        }
+
+        .badge-workshop {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 6px;
+            background: rgba(194, 164, 255, 0.14);
+            color: #c2a4ff;
+            border: 1px solid rgba(194, 164, 255, 0.35);
+            white-space: nowrap;
+        }
+
+
+        /* Contact Section */
+        .contact-section {
+            width: var(--cWidth);
+            max-width: var(--cMaxWidth);
+            margin: auto;
+            padding: 120px 0 60px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-container {
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 60px;
+        }
+
+        .contact-flex {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .contact-box h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p a {
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .contact-social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            color: #eae5ec;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .contact-social:hover {
+            color: var(--accentColor);
+            transform: translateX(4px);
+        }
+
+        .contact-box h2 {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .contact-box h2 span {
+            color: var(--accentColor);
+        }
+
+        .contact-box h5 {
+            font-size: 13px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        /* Resume Modal */
+        #resume-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #120e16;
+            border: 1px solid rgba(194, 164, 255, 0.3);
+            border-radius: 20px;
+            max-width: 750px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 35px;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .landing-container {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding-top: 100px;
+            }
+            .landing-intro {
+                position: relative;
+                top: auto;
+                transform: none;
+                margin-bottom: 30px;
+            }
+            .landing-intro .subtitle {
+                margin: 10px auto;
+            }
+            .landing-info {
+                position: relative;
+                top: auto;
+                transform: none;
+                text-align: center;
+                margin-top: 30px;
+            }
+            .character-model {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                height: 380px;
+                margin: 20px auto;
+            }
+            .whatIDO {
+                flex-direction: column;
+                padding: 60px 0;
+            }
+            .what-box {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            .what-box-in {
+                margin-left: 0;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Ambient Glowing Circles -->
+    <div class="landing-circle1"></div>
+    <div class="landing-circle2"></div>
+    <div class="nav-fade"></div>
+
+    <!-- Interactive Cursor -->
+    <div class="cursor-main" id="cursor"></div>
+
+    <!-- Header / Navbar -->
+    <div class="header">
+        <a href="#" class="navbar-title" data-cursor="hover">DHARSHAN</a>
+        <a href="mailto:pspsdharshan@gmail.com" class="navbar-connect" data-cursor="hover">pspsdharshan@gmail.com</a>
+        <ul>
+            <li>
+                <a href="#about" data-cursor="hover">
+                    <div class="hover-link-wrap">
+                        <span>ABOUT</span>
+                        <span class="hover-link-sub">ABOUT</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#what-i-do" data-cursor="hover">
+                    <div class="hover-link-wrap">
+                        <span>WHAT I DO</span>
+                        <span class="hover-link-sub">WHAT I DO</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#career" data-cursor="hover">
+                    <div class="hover-link-wrap">
+                        <span>CAREER</span>
+                        <span class="hover-link-sub">CAREER</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#work" data-cursor="hover">
+                    <div class="hover-link-wrap">
+                        <span>WORK</span>
+                        <span class="hover-link-sub">WORK</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#contact" data-cursor="hover">
+                    <div class="hover-link-wrap">
+                        <span>CONTACT</span>
+                        <span class="hover-link-sub">CONTACT</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Floating Social Dock & Resume Pill -->
+    <div class="icons-section">
+        <div class="social-icons" id="social">
+            <span>
+                <a href="https://linkedin.com/in/dharshanselvaraj" target="_blank" title="LinkedIn" data-cursor="hover">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </span>
+            <span>
+                <a href="https://wa.me/919342915361" target="_blank" title="WhatsApp" data-cursor="hover">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </span>
+            <span>
+                <a href="mailto:pspsdharshan@gmail.com" title="Email" data-cursor="hover">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </span>
+            <span>
+                <a href="tel:+919342915361" title="Call" data-cursor="hover">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </span>
+        </div>
+        <button class="resume-button" onclick="openResumeModal()" data-cursor="hover">
+            <span>RESUME</span>
+            <i class="far fa-file-lines"></i>
+        </button>
+    </div>
+
+    <!-- Main Page Wrapper -->
+    <div class="container-main">
+
+        <!-- 01 / Landing Section -->
+        <section class="landing-section" id="landingDiv">
+            <div class="landing-container">
+                
+                <!-- Left: Intro -->
+                <div class="landing-intro">
+                    <h2>Hello! I'm</h2>
+                    <h1>
+                        DHARSHAN<br>
+                        <span>SELVARAJ</span>
+                    </h1>
+                    <p class="subtitle">MBA Candidate in HR & Business Analytics • BCA Foundation</p>
+                </div>
+
+                <!-- Center: 3D Stage / Holo Card -->
+                <div class="character-model" id="characterModel">
+                    <div class="character-rim"></div>
+                    
+                    <!-- 3D WebGL Canvas Layer -->
+                    <canvas id="canvas3d"></canvas>
+
+                    <!-- Interactive Holographic Card (With Dharshan's Portrait) -->
+                    <div class="avatar-holo-card" id="holoCard">
+                        <img src="CEO.webp" alt="Dharshan Selvaraj">
+                        <div class="avatar-badge">
+                            <div class="avatar-badge-text">
+                                <h4>Dharshan Selvaraj</h4>
+                                <p>Karur, Tamil Nadu • Available</p>
+                            </div>
+                            <div class="avatar-badge-dot"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Dual Rolling Info -->
+                <div class="landing-info">
+                    <h3>Focused on</h3>
+                    <div class="landing-info-h2">HR & GROWTH</div>
+                    <div class="landing-info-sub">ANALYTICS</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 02 / About Section -->
+        <section class="about-section" id="about">
+            <div class="about-me">
+                <h3 class="title">About Me</h3>
+                <p class="para">
+                    MBA candidate specializing in <strong>Human Resources and Business Analytics</strong> with a solid BCA foundation. Experienced across business development, digital growth, SEO architecture, and talent operations. Proven track record with <strong>6+ state and national laurels</strong>, and high-impact internship achievements at <strong>HFFC</strong>, <strong>Magic Factory London</strong>, and <strong>Purezza Technologies</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- 03 / What I Do Section (FIXED PROPERLY) -->
+        <section class="whatIDO" id="what-i-do">
+            <div class="what-box">
+                <h2 class="title">
+                    W<span class="hat-h2">HAT</span><br>
+                    I<span class="do-h2"> DO</span>
+                </h2>
+            </div>
+            <div class="what-box">
+                <div class="what-box-in">
+                    
+                    <!-- Domain 1: HR & Talent -->
+                    <div class="what-content what-content-active" id="card-hr" onclick="activateWhatCard(this)" onmouseenter="activateWhatCard(this)">
+                        <div class="what-corner"></div>
+                        <div class="what-arrow"></div>
+
+                        <div class="what-content-in">
+                            <h3>HR & TALENT</h3>
+                            <h4>Domain Focus</h4>
+                            <p>
+                                Focus on modern talent management, candidate screening, employee engagement, operations, and analytical workforce decision systems.
+                            </p>
+                            <h5>Skillset & tools</h5>
+                            <div class="what-content-flex">
+                                <span class="what-tags">Recruitment</span>
+                                <span class="what-tags">Candidate Screening</span>
+                                <span class="what-tags">HR Analytics</span>
+                                <span class="what-tags">Employee Engagement</span>
+                                <span class="what-tags">HR Operations</span>
+                                <span class="what-tags">Coordination</span>
+                                <span class="what-tags">Performance Tracking</span>
+                                <span class="what-tags">Team Culture</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain 2: Analytics & Growth -->
+                    <div class="what-content" id="card-growth" onclick="activateWhatCard(this)" onmouseenter="activateWhatCard(this)">
+                        <div class="what-corner"></div>
+                        <div class="what-arrow"></div>
+
+                        <div class="what-content-in">
+                            <h3>ANALYTICS & GROWTH</h3>
+                            <h4>Domain Focus</h4>
+                            <p>
+                                Driving strategic business development, market intelligence, customer acquisition, SEO engineering, and digital optimization infrastructure.
+                            </p>
+                            <h5>Skillset & tools</h5>
+                            <div class="what-content-flex">
+                                <span class="what-tags">Business Development</span>
+                                <span class="what-tags">Lead Generation</span>
+                                <span class="what-tags">Market Research</span>
+                                <span class="what-tags">SEO Architecture</span>
+                                <span class="what-tags">Google Analytics</span>
+                                <span class="what-tags">SEMrush</span>
+                                <span class="what-tags">Ahrefs</span>
+                                <span class="what-tags">WordPress</span>
+                                <span class="what-tags">CRM Tools</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 / Career & Timeline Section -->
+        <section class="career-section" id="career">
+            <h2>
+                My career <span>&</span><br>experience
+            </h2>
+            <div class="career-info">
+                <div class="career-timeline">
+                    <div class="career-dot"></div>
+                </div>
+
+                <!-- Internship 1: HFFC -->
+                <div class="career-info-box">
+                    <div class="career-info-in">
+                        <div class="career-role">
+                            <h4>Business Development Intern</h4>
+                            <h5>Home First Finance Company (HFFC)</h5>
+                        </div>
+                        <h3>2026</h3>
+                    </div>
+                    <p>
+                        Generated home loan leads through referral partner networks, conducted field customer visits, coordinated documentation with branch teams, and built practical experience in client communication and sales support.
+                    </p>
+                </div>
+
+                <!-- Internship 2: Magic Factory -->
+                <div class="career-info-box">
+                    <div class="career-info-in">
+                        <div class="career-role">
+                            <h4>Digital Marketing & SEO Intern</h4>
+                            <h5>Magic Factory (London, Remote)</h5>
+                        </div>
+                        <h3>2025</h3>
+                    </div>
+                    <p>
+                        Spearheaded technical and on-page SEO activities, automated repetitive optimization workflows, handled indexing and site health audits, and performed competitor analysis using SEMrush and Ahrefs.
+                    </p>
+                </div>
+
+                <!-- Internship 3: Purezza Technologies -->
+                <div class="career-info-box">
+                    <div class="career-info-in">
+                        <div class="career-role">
+                            <h4>WordPress & Digital Intern</h4>
+                            <h5>Purezza Technologies (Remote)</h5>
+                        </div>
+                        <h3>2024</h3>
+                    </div>
+                    <p>
+                        Engineered and maintained responsive business websites with Elementor, coordinated project deliverables with cross-functional teams, and supported digital campaign execution.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 05 / Work & Laurels Showcase -->
+        <section class="work-section" id="work">
+            <div class="work-container">
+                <h2>
+                    Featured <span>Work & Laurels</span>
+                </h2>
+                <p class="work-subtitle">Continuous auto-scrolling showcase • Hover over any card to pause</p>
+                
+                <div class="work-track-wrapper">
+                    <div class="work-track">
+                        <!-- 01 -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>01</h3>
+                                    <div>
+                                        <h4>National Case Study</h4>
+                                        <p>Organized by Bsmart</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge"><i class="fas fa-trophy"></i> 1st Prize Winner • 2026</div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Strategic case analysis, market entry frameworks, competitive positioning, and actionable financial projections.</p>
+                            </div>
+                        </div>
+
+                        <!-- 02 -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>02</h3>
+                                    <div>
+                                        <h4>Brand Case Study</h4>
+                                        <p>M. Kumarasamy College of Engg</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge"><i class="fas fa-trophy"></i> 1st Prize Winner • 2026</div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Brand equity assessment, consumer perception audits, market differentiation, and omnichannel growth strategies.</p>
+                            </div>
+                        </div>
+
+                        <!-- 03 -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>03</h3>
+                                    <div>
+                                        <h4>Business Quiz Challenge</h4>
+                                        <p>SRM College, Trichy</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge"><i class="fas fa-trophy"></i> 1st Prize Winner • 2026</div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Corporate governance, macroeconomic principles, corporate finance, and rapid strategic decision making.</p>
+                            </div>
+                        </div>
+
+                        <!-- 04 -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>04</h3>
+                                    <div>
+                                        <h4>Product Launch Strategy</h4>
+                                        <p>K.S.R. College</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge"><i class="fas fa-trophy"></i> 1st Prize Winner • 2024</div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Go-to-market plan, product commercialization roadmap, consumer segmentation, and dynamic pricing structure.</p>
+                            </div>
+                        </div>
+
+                        <!-- 05 -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>05</h3>
+                                    <div>
+                                        <h4>HFFC Growth Pipeline</h4>
+                                        <p>Karur Market Expansion</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge" style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; border-color: rgba(59, 130, 246, 0.3);">
+                                    <i class="fas fa-chart-line"></i> Field Operations • 2026
+                                </div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>B2B referral network development, client documentation follow-ups, and sales team coordination.</p>
+                            </div>
+                        </div>
+
+                        <!-- 06 -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>06</h3>
+                                    <div>
+                                        <h4>SEO Engine Architecture</h4>
+                                        <p>Magic Factory London</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge" style="background: rgba(168, 85, 247, 0.12); color: #c084fc; border-color: rgba(168, 85, 247, 0.3);">
+                                    <i class="fas fa-code"></i> Technical SEO • 2025
+                                </div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Automation of on-page optimization, sitemaps, canonical tags, competitor analysis via SEMrush and Ahrefs.</p>
+                            </div>
+                        </div>
+
+                        <!-- Duplicate Set for Seamless Loop -->
+                        <!-- 01 Dup -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>01</h3>
+                                    <div>
+                                        <h4>National Case Study</h4>
+                                        <p>Organized by Bsmart</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge"><i class="fas fa-trophy"></i> 1st Prize Winner • 2026</div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Strategic case analysis, market entry frameworks, competitive positioning, and actionable financial projections.</p>
+                            </div>
+                        </div>
+
+                        <!-- 02 Dup -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>02</h3>
+                                    <div>
+                                        <h4>Brand Case Study</h4>
+                                        <p>M. Kumarasamy College of Engg</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge"><i class="fas fa-trophy"></i> 1st Prize Winner • 2026</div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Brand equity assessment, consumer perception audits, market differentiation, and omnichannel growth strategies.</p>
+                            </div>
+                        </div>
+
+                        <!-- 03 Dup -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>03</h3>
+                                    <div>
+                                        <h4>Business Quiz Challenge</h4>
+                                        <p>SRM College, Trichy</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge"><i class="fas fa-trophy"></i> 1st Prize Winner • 2026</div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Corporate governance, macroeconomic principles, corporate finance, and rapid strategic decision making.</p>
+                            </div>
+                        </div>
+
+                        <!-- 04 Dup -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>04</h3>
+                                    <div>
+                                        <h4>Product Launch Strategy</h4>
+                                        <p>K.S.R. College</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge"><i class="fas fa-trophy"></i> 1st Prize Winner • 2024</div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Go-to-market plan, product commercialization roadmap, consumer segmentation, and dynamic pricing structure.</p>
+                            </div>
+                        </div>
+
+                        <!-- 05 Dup -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>05</h3>
+                                    <div>
+                                        <h4>HFFC Growth Pipeline</h4>
+                                        <p>Karur Market Expansion</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge" style="background: rgba(59, 130, 246, 0.12); color: #60a5fa; border-color: rgba(59, 130, 246, 0.3);">
+                                    <i class="fas fa-chart-line"></i> Field Operations • 2026
+                                </div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>B2B referral network development, client documentation follow-ups, and sales team coordination.</p>
+                            </div>
+                        </div>
+
+                        <!-- 06 Dup -->
+                        <div class="work-box" data-cursor="hover">
+                            <div>
+                                <div class="work-title">
+                                    <h3>06</h3>
+                                    <div>
+                                        <h4>SEO Engine Architecture</h4>
+                                        <p>Magic Factory London</p>
+                                    </div>
+                                </div>
+                                <div class="work-badge" style="background: rgba(168, 85, 247, 0.12); color: #c084fc; border-color: rgba(168, 85, 247, 0.3);">
+                                    <i class="fas fa-code"></i> Technical SEO • 2025
+                                </div>
+                            </div>
+                            <div class="work-info">
+                                <h4>Domain & Focus</h4>
+                                <p>Automation of on-page optimization, sitemaps, canonical tags, competitor analysis via SEMrush and Ahrefs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 / Education, Achievements & Certifications Bento -->
+        <section class="edu-section" id="credentials">
+            <div class="edu-section-title">
+                <h2>Education <span>&</span> Credentials</h2>
+                <p>Academic foundation in Business Analytics & HR, coupled with recognized national laurels and certified domain specializations.</p>
+            </div>
+
+            <div class="edu-grid">
+                
+                <!-- Card 1: Education -->
+                <div class="edu-column-card">
+                    <div class="edu-col-head">
+                        <div class="edu-col-icon edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Education</h3>
+                    </div>
+                    
+                    <div class="edu-items-wrap">
+                        <div class="edu-card-entry">
+                            <div class="edu-entry-head">
+                                <h4>Master of Business Administration (MBA)</h4>
+                                <span class="badge-year">2025 – 2027</span>
+                            </div>
+                            <p class="edu-inst">Business Analytics & HR • M. Kumarasamy College of Engineering, Karur</p>
+                        </div>
+
+                        <div class="edu-card-entry">
+                            <div class="edu-entry-head">
+                                <h4>Bachelor of Computer Applications (BCA)</h4>
+                                <span class="badge-year">2022 – 2025</span>
+                            </div>
+                            <p class="edu-inst">K.S. Rangasamy College of Arts and Science</p>
+                            <span class="badge-score">CGPA: 7.1</span>
+                        </div>
+
+                        <div class="edu-card-entry">
+                            <div class="edu-entry-head">
+                                <h4>Higher Secondary Certificate (HSC)</h4>
+                                <span class="badge-year">2020 – 2022</span>
+                            </div>
+                            <p class="edu-inst">Commerce Stream • Cheran Matric Higher Secondary School</p>
+                            <span class="badge-score">88.5%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Achievements -->
+                <div class="edu-column-card">
+                    <div class="edu-col-head">
+                        <div class="edu-col-icon achieve-icon"><i class="fas fa-trophy"></i></div>
+                        <h3>Achievements</h3>
+                    </div>
+                    
+                    <div class="edu-items-wrap">
+                        <div class="achieve-entry">
+                            <span class="badge-1st">1st Prize</span>
+                            <div class="achieve-desc">
+                                <h5>National Level Case Study Competition</h5>
+                                <p>Bsmart (2026)</p>
+                            </div>
+                        </div>
+
+                        <div class="achieve-entry">
+                            <span class="badge-1st">1st Prize</span>
+                            <div class="achieve-desc">
+                                <h5>Brand Case Study Competition</h5>
+                                <p>M. Kumarasamy College of Engineering (2026)</p>
+                            </div>
+                        </div>
+
+                        <div class="achieve-entry">
+                            <span class="badge-1st">1st Prize</span>
+                            <div class="achieve-desc">
+                                <h5>Business Quiz Competition</h5>
+                                <p>SRM College, Trichy (2026)</p>
+                            </div>
+                        </div>
+
+                        <div class="achieve-entry">
+                            <span class="badge-1st">1st Prize</span>
+                            <div class="achieve-desc">
+                                <h5>Product Launch Business Strategy Competition</h5>
+                                <p>K.S.R. College (2024)</p>
+                            </div>
+                        </div>
+
+                        <div class="achieve-entry">
+                            <span class="badge-2nd">2nd Prize</span>
+                            <div class="achieve-desc">
+                                <h5>Business Plan Competition</h5>
+                                <p>K.S.R. College (2024)</p>
+                            </div>
+                        </div>
+
+                        <div class="achieve-entry">
+                            <span class="badge-2nd">2nd Prize</span>
+                            <div class="achieve-desc">
+                                <h5>Business Quiz Competition</h5>
+                                <p>Sengunthar Engineering College (2025)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Certifications -->
+                <div class="edu-column-card">
+                    <div class="edu-col-head">
+                        <div class="edu-col-icon cert-icon"><i class="fas fa-certificate"></i></div>
+                        <h3>Certifications</h3>
+                    </div>
+                    
+                    <div class="edu-items-wrap">
+                        <div class="edu-card-entry">
+                            <div class="edu-entry-head">
+                                <h4>Fundamentals of Digital Marketing</h4>
+                                <span class="badge-elite">Elite • 85%</span>
+                            </div>
+                            <p class="edu-inst">NPTEL / IIT Kharagpur (2026)</p>
+                        </div>
+
+                        <div class="edu-card-entry">
+                            <div class="edu-entry-head">
+                                <h4>GST and IT Return Filing</h4>
+                                <span class="badge-cert">Certified</span>
+                            </div>
+                            <p class="edu-inst">EDII-TN, Government of Tamil Nadu (2026)</p>
+                        </div>
+
+                        <div class="edu-card-entry">
+                            <div class="edu-entry-head">
+                                <h4>IPR and IP Management for Startups</h4>
+                                <span class="badge-workshop">National Workshop</span>
+                            </div>
+                            <p class="edu-inst">K.S. Rangasamy College (2024)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 07 / Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="contact-container">
+                <div class="contact-flex">
+                    <div class="contact-box">
+                        <h4>Email</h4>
+                        <p>
+                            <a href="mailto:pspsdharshan@gmail.com" data-cursor="hover">pspsdharshan@gmail.com</a>
+                        </p>
+                        <h4 style="margin-top: 25px;">Phone</h4>
+                        <p>
+                            <a href="tel:+919342915361" data-cursor="hover">+91 9342915361</a>
+                        </p>
+                    </div>
+
+                    <div class="contact-box">
+                        <h4>Connect Directly</h4>
+                        <div class="contact-social-links">
+                            <a href="https://linkedin.com/in/dharshanselvaraj" target="_blank" class="contact-social" data-cursor="hover">
+                                <i class="fab fa-linkedin"></i> LinkedIn Profile <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                            <a href="https://wa.me/919342915361" target="_blank" class="contact-social" data-cursor="hover">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Chat <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                            <a href="mailto:pspsdharshan@gmail.com" class="contact-social" data-cursor="hover">
+                                <i class="far fa-envelope"></i> Send Direct Email <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-box">
+                        <h2>
+                            HR & Business Analytics <br>by <span>Dharshan Selvaraj</span>
+                        </h2>
+                        <h5>
+                            <i class="far fa-copyright"></i> 2026 • Karur, Tamil Nadu
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Resume Modal -->
+    <div id="resume-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeResumeModal()">&times;</button>
+            <h2 style="font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 8px;">Dharshan Selvaraj</h2>
+            <p style="color: var(--accentColor); font-size: 14px; margin-bottom: 20px;">
+                MBA in HR & Business Analytics | BCA Foundation | Karur, Tamil Nadu
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.04); padding: 18px; border-radius: 12px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; color: #ddd;">
+                Seeking an HR internship-cum-placement opportunity to create measurable organizational impact through modern talent management, workforce coordination, and business analytics.
+            </div>
+
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="mailto:pspsdharshan@gmail.com?subject=Interview%20Invitation" class="resume-button" style="text-align: center;">
+                    <i class="fas fa-calendar-check"></i> Schedule Interview
+                </a>
+                <button onclick="window.print()" class="resume-button" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
+                    <i class="fas fa-print"></i> Print Profile
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Custom Cursor Movement
+        const cursor = document.getElementById('cursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.18;
+            cursorY += (mouseY - cursorY) * 0.18;
+            cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        document.querySelectorAll('[data-cursor="hover"]').forEach(elem => {
+            elem.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+            elem.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+        });
+
+        // 3D Canvas Scene
+        const canvas = document.getElementById('canvas3d');
+        const characterModel = document.getElementById('characterModel');
+        const holoCard = document.getElementById('holoCard');
+
+        let scene, camera, renderer, particles;
+
+        function init3D() {
+            const width = characterModel.clientWidth || 600;
+            const height = characterModel.clientHeight || 700;
+
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+            camera.position.z = 24;
+
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Ambient & Studio Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
+            scene.add(ambientLight);
+
+            const dirLight = new THREE.DirectionalLight(0xc2a4ff, 1.6);
+            dirLight.position.set(5, 14, 12);
+            scene.add(dirLight);
+
+            const frontLight = new THREE.DirectionalLight(0xffffff, 1.2);
+            frontLight.position.set(0, 6, 16);
+            scene.add(frontLight);
+
+            const purpleLight = new THREE.PointLight(0xaa42ff, 2.5, 50);
+            purpleLight.position.set(10, 15, 10);
+            scene.add(purpleLight);
+
+            const cyanLight = new THREE.PointLight(0x06b6d4, 2, 50);
+            cyanLight.position.set(-10, -10, 10);
+            scene.add(cyanLight);
+
+            // 3D Human Character Loader
+            let characterHuman3D = null;
+            let humanMixer = null;
+            const clock = new THREE.Clock();
+
+            if (window.THREE && THREE.GLTFLoader) {
+                const gltfLoader = new THREE.GLTFLoader();
+                if (THREE.DRACOLoader) {
+                    const dracoLoader = new THREE.DRACOLoader();
+                    dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/draco/');
+                    gltfLoader.setDRACOLoader(dracoLoader);
+                }
+
+                gltfLoader.load('character.glb', (gltf) => {
+                    characterHuman3D = gltf.scene;
+                    characterHuman3D.position.set(0, -6.5, 2);
+                    characterHuman3D.scale.set(1.9, 1.9, 1.9);
+                    
+                    characterHuman3D.traverse((child) => {
+                        if (child.isMesh) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                        }
+                    });
+
+                    scene.add(characterHuman3D);
+
+                    // Fade out fallback 2D card once 3D human is ready
+                    if (holoCard) {
+                        holoCard.style.transition = 'opacity 0.6s ease';
+                        holoCard.style.opacity = '0';
+                        holoCard.style.pointerEvents = 'none';
+                    }
+
+                    if (gltf.animations && gltf.animations.length > 0) {
+                        humanMixer = new THREE.AnimationMixer(characterHuman3D);
+                        gltf.animations.forEach((clip) => {
+                            humanMixer.clipAction(clip).play();
+                        });
+                    }
+                }, undefined, (err) => {
+                    console.log("3D character model will display fallback card", err);
+                });
+            }
+
+            // Floating Ambient Particles
+            const particleGeo = new THREE.BufferGeometry();
+            const count = 350;
+            const posArray = new Float32Array(count * 3);
+
+            for (let i = 0; i < count * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 35;
+            }
+            particleGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+            const particleMat = new THREE.PointsMaterial({
+                size: 0.08,
+                color: 0xc2a4ff,
+                transparent: true,
+                opacity: 0.65,
+                blending: THREE.AdditiveBlending
+            });
+
+            particles = new THREE.Points(particleGeo, particleMat);
+            scene.add(particles);
+
+            // 3D Glowing Gyro Ring
+            const ringGeo = new THREE.TorusGeometry(7.5, 0.06, 16, 100);
+            const ringMat = new THREE.MeshBasicMaterial({ color: 0xaa42ff, wireframe: true, transparent: true, opacity: 0.4 });
+            const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+            ringMesh.rotation.x = Math.PI / 3;
+            scene.add(ringMesh);
+
+            // Animation Loop
+            let targetRotX = 0, targetRotY = 0;
+            document.addEventListener('mousemove', (e) => {
+                const normX = (e.clientX / window.innerWidth - 0.5) * 2;
+                const normY = (e.clientY / window.innerHeight - 0.5) * 2;
+                targetRotY = normX * 0.4;
+                targetRotX = normY * 0.2;
+
+                if (holoCard && holoCard.style.opacity !== '0') {
+                    holoCard.style.transform = `perspective(800px) rotateY(${normX * 12}deg) rotateX(${-normY * 12}deg)`;
+                }
+            });
+
+            function render() {
+                requestAnimationFrame(render);
+                particles.rotation.y += 0.0015;
+                particles.rotation.x += 0.0008;
+                ringMesh.rotation.z += 0.003;
+
+                if (humanMixer) {
+                    humanMixer.update(clock.getDelta());
+                }
+                if (characterHuman3D) {
+                    characterHuman3D.rotation.y += (targetRotY * 0.7 - characterHuman3D.rotation.y) * 0.06;
+                    characterHuman3D.rotation.x += (-targetRotX * 0.3 - characterHuman3D.rotation.x) * 0.06;
+                }
+
+                camera.position.x += (targetRotY * 3 - camera.position.x) * 0.05;
+                camera.position.y += (-targetRotX * 3 - camera.position.y) * 0.05;
+                camera.lookAt(0, 0, 0);
+
+                renderer.render(scene, camera);
+            }
+            render();
+
+            window.addEventListener('resize', () => {
+                const w = characterModel.clientWidth || 600;
+                const h = characterModel.clientHeight || 700;
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+                renderer.setSize(w, h);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', init3D);
+
+        // Fixed What I Do Card Switcher
+        function activateWhatCard(card) {
+            document.querySelectorAll('.what-content').forEach(c => c.classList.remove('what-content-active'));
+            card.classList.add('what-content-active');
+        }
+
+        // Resume Modal Controls
+        function openResumeModal() {
+            document.getElementById('resume-modal').style.display = 'flex';
+        }
+        function closeResumeModal() {
+            document.getElementById('resume-modal').style.display = 'none';
+        }
+        document.getElementById('resume-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'resume-modal') closeResumeModal();
+        });
+    </script>
+</body>
+
+</html>

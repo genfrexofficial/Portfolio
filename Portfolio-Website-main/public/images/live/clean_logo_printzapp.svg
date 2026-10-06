@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 80" fill="none">
+  <!-- Left circle (Blue) -->
+  <circle cx="58" cy="40" r="36" fill="#1D4ED8" />
+  <!-- Right circle (Pink/Rose) -->
+  <circle cx="108" cy="40" r="36" fill="#BE185D" opacity="0.9" />
+  <!-- Text Printzapp in white bold -->
+  <text x="84" y="47" fill="#FFFFFF" font-family="'Geist', 'Inter', -apple-system, sans-serif" font-size="20" font-weight="800" text-anchor="middle" letter-spacing="-0.3px">Printzapp</text>
+</svg>

@@ -1,0 +1,371 @@
+.credentials-section {
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  margin: 100px auto 140px auto;
+  position: relative;
+  z-index: 2;
+  clear: both;
+}
+
+.credentials-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.credentials-header h2 {
+  font-size: clamp(38px, 5.5vw, 75px);
+  line-height: 1.15;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  background: linear-gradient(0deg, #0057F8, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+}
+
+.credentials-header h2 span {
+  font-weight: 300;
+  color: var(--accentColor);
+  -webkit-text-fill-color: var(--accentColor);
+}
+
+.credentials-header p {
+  color: #a8a0b0;
+  font-size: clamp(14px, 1.2vw, 17px);
+  max-width: 650px;
+  margin: 0 auto;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* 3-Column Bento Grid */
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.credential-card {
+  background: rgba(16, 20, 32, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 87, 248, 0.2);
+  border-radius: 20px;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.credential-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 87, 248, 0.7), transparent);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.credential-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(56, 189, 248, 0.14),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.credential-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 16px 40px -10px rgba(0, 87, 248, 0.35),
+    0 0 25px -5px rgba(56, 189, 248, 0.25);
+}
+
+.credential-card:hover::before {
+  opacity: 1;
+}
+
+.credential-card:hover::after {
+  opacity: 1;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.card-icon.edu-icon {
+  background: rgba(0, 87, 248, 0.16);
+  color: #3880ff;
+  border: 1px solid rgba(0, 87, 248, 0.35);
+}
+
+.card-icon.achieve-icon {
+  background: rgba(251, 191, 36, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+.card-icon.cert-icon {
+  background: rgba(52, 211, 153, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.card-top h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.card-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+/* Education Item */
+.edu-item {
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.edu-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 87, 248, 0.35);
+}
+
+.edu-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.edu-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f5f2f8;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.edu-year-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: rgba(0, 87, 248, 0.14);
+  color: #3880ff;
+  border: 1px solid rgba(0, 87, 248, 0.35);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.edu-college {
+  font-size: 13.5px;
+  color: #b5adc0;
+  margin: 0 0 6px 0;
+  line-height: 1.45;
+}
+
+.edu-score-badge {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(1, 28, 84, 0.85);
+  color: #93c5fd;
+  border: 1px solid rgba(0, 87, 248, 0.45);
+}
+
+/* Achievement Item */
+.achieve-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 15px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.achieve-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(251, 191, 36, 0.25);
+  transform: translateX(4px);
+}
+
+.prize-pill {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+  margin-top: 1px;
+}
+
+.prize-1st {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+.prize-2nd {
+  background: rgba(203, 213, 225, 0.15);
+  color: #e2e8f0;
+  border: 1px solid rgba(203, 213, 225, 0.3);
+}
+
+.achieve-text {
+  flex: 1;
+}
+
+.achieve-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f1edf5;
+  line-height: 1.4;
+  margin: 0 0 3px 0;
+}
+
+.achieve-meta {
+  font-size: 12px;
+  color: #9f96aa;
+  margin: 0;
+}
+
+/* Certification Item */
+.cert-item {
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.cert-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.cert-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f5f2f8;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.cert-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.cert-badge-elite {
+  background: rgba(52, 211, 153, 0.14);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+.cert-badge-govt {
+  background: rgba(147, 197, 253, 0.14);
+  color: #93c5fd;
+  border: 1px solid rgba(147, 197, 253, 0.35);
+}
+
+.cert-badge-ws {
+  background: rgba(0, 87, 248, 0.16);
+  color: #3880ff;
+  border: 1px solid rgba(0, 87, 248, 0.4);
+}
+
+.cert-org {
+  font-size: 13px;
+  color: #b5adc0;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1180px) {
+  .credentials-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .credentials-section {
+    margin: 70px auto 100px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .credential-card {
+    padding: 26px 20px;
+  }
+  
+  .credentials-header h2 {
+    font-size: 34px;
+  }
+  
+  .edu-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
