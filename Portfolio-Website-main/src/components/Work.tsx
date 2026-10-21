@@ -170,7 +170,7 @@ const Work = () => {
             className={`work-tab-btn ${activeTab === "web" ? "active" : ""}`}
             onClick={() => setActiveTab("web")}
           >
-            <FaGlobe /> Live Client Websites (7)
+            <FaGlobe /> Live Client Websites (8)
           </button>
           <button
             type="button"
