@@ -452,6 +452,10 @@
   height: 54px;
 }
 
+.brand-logo-sleepbud {
+  height: 44px;
+}
+
 @media only screen and (max-width: 768px) {
   .brand-collab-row {
     gap: 22px 30px;
@@ -467,6 +471,9 @@
   }
   .brand-logo-magic {
     height: 28px;
+  }
+  .brand-logo-sleepbud {
+    height: 32px;
   }
   .brand-logo-met {
     height: 42px;

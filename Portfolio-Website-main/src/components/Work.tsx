@@ -76,6 +76,16 @@ const liveWebProjects: WebProject[] = [
     domain: "Digital Education",
   },
   {
+    title: "SleepBudSleep - Pediatric Sleep Consultant",
+    category: "Consultancy & Healthcare Portal",
+    tools: "WordPress, Elementor, Technical SEO, Content Strategy",
+    image: "/images/live/sleepbudsleep.webp",
+    link: "https://sleepbudsleep.in/",
+    badge: "Live Client Portal",
+    badgeType: "blue",
+    domain: "Parenting & Wellness",
+  },
+  {
     title: "Shyam Hathaliya Portfolio",
     category: "Personal Brand Portfolio",
     tools: "WordPress, Custom Layouts, Performance SEO",
@@ -256,6 +266,13 @@ const Work = () => {
               src="/images/live/clean_logo_magicfactory.svg"
               alt="Magic Factory"
               className="brand-logo-img brand-logo-magic"
+            />
+          </div>
+          <div className="brand-logo-item">
+            <img
+              src="/images/live/clean_logo_sleepbudsleep.png"
+              alt="SleepBudSleep"
+              className="brand-logo-img brand-logo-sleepbud"
             />
           </div>
           <div className="brand-logo-item">

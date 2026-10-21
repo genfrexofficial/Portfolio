@@ -29,6 +29,15 @@ const testimonials: TestimonialItem[] = [
       "Dharshan’s work exceeded all my expectations. He not only designed a visually stunning website but also optimized it for SEO, driving more traffic to our business. His knowledge of digital marketing tools and dedication to perfection is commendable. I couldn’t have asked for a better developer!",
     rating: 5,
   },
+  {
+    name: "Monika Naidu",
+    role: "Founder & Pediatric Sleep Consultant",
+    company: "SleepBudSleep",
+    image: "/images/live/monika.webp",
+    quote:
+      "A few months ago, I started working with Dharshan and his team for my digital marketing and content strategy. And it's really a very good experience so far. They understand my brand, they come up with really relevant ideas, and make the whole process so easier for me in terms of SEO ranking. Dharshan has been very, very supportive and easy to work with, and I'm really happy with the experience so far. Thank you so much, Dharshan and team.",
+    rating: 5,
+  },
 ];
 
 const Testimonials = () => {
